@@ -170,6 +170,25 @@ public class ActionController {
     }
 
     /**
+     * 查看理发师（用户）
+     * @return
+     */
+    @RequestMapping(value = "/showBarber")
+    public String showBarber(Integer pageIndex,Model model){
+        // 创建分页对象
+        PageModel pageModel = new PageModel();
+        // 如果参数pageIndex不为null，设置pageIndex，即显示第几页
+        if(pageIndex != null){
+            pageModel.setPageIndex(pageIndex);
+        }
+        List<User> users = brsService.findAllBarberByPage(pageModel);
+        model.addAttribute("pageModel", pageModel);
+        model.addAttribute("users",users);
+        model.addAttribute("userType",userType);
+        return "userPage/showBarber";
+    }
+
+    /**
      * 订单管理（管理员）
      * @return
      */
@@ -212,11 +231,22 @@ public class ActionController {
     }
 
     /**
+     * 查看理发师详情
+     * @return
+     */
+    @RequestMapping(value = "/viewBarberById")
+    public String viewBarberById(Integer id,Model model){
+        User user = brsService.findUserById(id);
+        model.addAttribute("user",user);
+        return "userPage/showBarberDetail";
+    }
+
+    /**
      * 添加理发师
      */
     @RequestMapping(value = "/addBarberToDB",method= RequestMethod.POST)
-    public String addBarberToDB(String username,String password,String b_name,Integer usertype,String phonenumber){
-        brsService.saveBarberToDB(username,password,b_name,usertype,phonenumber);
+    public String addBarberToDB(String username,String password,String b_name,String b_description,String phonenumber){
+        brsService.saveBarberToDB(username,password,b_name,b_description,phonenumber);
         return "commonPage/success";
     }
 

@@ -37,6 +37,9 @@
             <a class="nav-link" href="#" style="color: #1f6f4a">我要预约</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath}/showBarber">查看理发师</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="${pageContext.request.contextPath}/logout">退出登录</a>
         </li>
     </ul>

@@ -13,11 +13,6 @@ public class SessionTimeoutInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        String curPage = Constant.curPage;
-        if (curPage.equals("playlist")){
-            return true;
-        }
-
 //        System.out.println("进入拦截");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

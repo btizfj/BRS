@@ -90,6 +90,8 @@ public interface UserDao {
     List<Order> selectAllOrderByPage(Map<String, Object> params);
 
     @SelectProvider(type= UserDynamicSqlProvider.class,method="insertBarberToDB")
-    void insertBarberToDB(String username, String password, String b_name, Integer usertype, String phonenumber);
+    void insertBarberToDB(String username, String password, String b_name, String b_description, String phonenumber);
 
+    @Select("select * from " + USERTABLE+" where id=#{id}")
+    User selectUserById(Integer id);
 }

@@ -81,15 +81,23 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="usertype">用户类型:</label>
-                        <select class="form-control" id="usertype" name="usertype">
-                            <option value="-1">选择类型</option>
-                            <option value="0">用户</option>
-                            <option value="1">理发师</option>
-                            <option value="2">管理员</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="b_description">理发师简介:</label>
+                            <input type="text" class="form-control" id="b_description" name="b_description">
+                        </div>
                     </div>
                 </div>
+                <%--<div class="row">--%>
+                    <%--<div class="col">--%>
+                        <%--<label for="usertype">用户类型:</label>--%>
+                        <%--<select class="form-control" id="usertype" name="usertype">--%>
+                            <%--<option value="-1">选择类型</option>--%>
+                            <%--<option value="0">用户</option>--%>
+                            <%--<option value="1">理发师</option>--%>
+                            <%--<option value="2">管理员</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <div class="row">
                     <div class="col">
                         <div class="form-group">

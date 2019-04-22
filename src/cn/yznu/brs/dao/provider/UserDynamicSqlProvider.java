@@ -9,14 +9,15 @@ import static cn.yznu.brs.util.constants.Constant.*;
 
 public class UserDynamicSqlProvider {
 
-    public String insertBarberToDB(String username, String password, String b_name, Integer usertype, String phonenumber){
+    public String insertBarberToDB(String username, String password, String b_name, String b_description, String phonenumber){
         String sql =  new SQL(){
             {
                 INSERT_INTO(USERTABLE);
                 VALUES("username","'"+username+"'");
                 VALUES("password","'"+password+"'");
                 VALUES("b_name","'"+b_name+"'");
-                VALUES("usertype",""+usertype+"");
+                VALUES("usertype",""+1+"");
+                VALUES("b_description","'"+b_description+"'");
                 VALUES("phonenumber",""+phonenumber+"");
             }
         }.toString();

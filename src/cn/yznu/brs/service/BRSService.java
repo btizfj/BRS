@@ -47,5 +47,7 @@ public interface BRSService {
 
     List<Order> findAllOrderByPage(PageModel pageModel);
 
-    void saveBarberToDB(String username, String password, String b_name, Integer usertype, String phonenumber);
+    void saveBarberToDB(String username, String password, String b_name, String usertype, String phonenumber);
+
+    User findUserById(Integer id);
 }

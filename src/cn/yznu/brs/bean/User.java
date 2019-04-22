@@ -11,6 +11,15 @@ public class User implements java.io.Serializable {
     private Integer usertype;
     private String b_name;
     private String phonenumber;
+    private String b_description;
+
+    public String getB_description() {
+        return b_description;
+    }
+
+    public void setB_description(String b_description) {
+        this.b_description = b_description;
+    }
 
     public int getId() {
         return id;

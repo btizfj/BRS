@@ -6,13 +6,12 @@
   Date: 2019/4/19
   Time: 20:37
   To change this template use File | Settings | File Templates.
-  用户和理发师的“预约管理界面”
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>消息管理界面</title>
+    <title>理发师查看</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
@@ -31,13 +30,13 @@
             <a class="nav-link" href="${pageContext.request.contextPath}/messagePage">消息管理</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" style="color: #1f6f4a">预约管理</a>
+            <a class="nav-link" href="${pageContext.request.contextPath}/reservationPage">预约管理</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="${pageContext.request.contextPath}/userReservation">我要预约</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/showBarber">查看理发师</a>
+            <a class="nav-link" href="#" style="color: #1f6f4a">查看理发师</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="${pageContext.request.contextPath}/logout">退出登录</a>
@@ -53,24 +52,22 @@
                 <thead>
                 <tr>
                     <th>编号</th>
-                    <th>理发师编号</th>
-                    <th>预约时间</th>
-                    <th>预约价格</th>
-                    <th>操作时间</th>
-                    <th>是否处理</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>用户类型</th>
+                    <th>电话号码</th>
                     <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${orders}" var="order" varStatus="stat">
+                <c:forEach items="${users}" var="user" varStatus="stat">
                     <tr>
                         <td>${stat.index+1}</td>
-                        <td>${order.barber_id}</td>
-                        <td>${reservationTime[order.r_time]}</td>
-                        <td>${order.r_price}</td>
-                        <td>${order.time}</td>
-                        <td>${orderState[order.isProcess]}</td>
-                        <td><a href="${pageContext.request.contextPath}/deleteOrderById?id=${order.id}" class="text-primary">删除</a></td>
+                        <td>${user.username}</td>
+                        <td>${user.password}</td>
+                        <td>${userType[user.usertype]}</td>
+                        <td>${user.phonenumber}</td>
+                        <td><a href="${pageContext.request.contextPath}/viewBarberById?id=${user.id}" target="_blank" class="text-primary">查看</a></td>
                     </tr>
                 </c:forEach>
                 <!-- 分页标签 -->
@@ -80,14 +77,13 @@
                                 pageIndex="${requestScope.pageModel.pageIndex}"
                                 pageSize="${requestScope.pageModel.pageSize}"
                                 recordCount="${requestScope.pageModel.recordCount}"
-                                submitUrl="${pageContext.request.contextPath}/reservationPage?pageIndex={0}"/>
+                                submitUrl="${pageContext.request.contextPath}/showBarber?pageIndex={0}"/>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
 </div>
 
 </body>

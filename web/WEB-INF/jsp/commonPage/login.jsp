@@ -49,7 +49,7 @@
     <div class="dowebok">
         <div class="logo"></div>
         <div class="form-item">
-            <input id="username" name="username" type="text" autocomplete="off" placeholder="邮箱">
+            <input id="username" name="username" type="text" autocomplete="off" placeholder="账号">
             <p class="tip">请输入合法的邮箱地址</p>
         </div>
         <div class="form-item">

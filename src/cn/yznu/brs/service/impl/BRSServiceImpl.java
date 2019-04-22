@@ -174,7 +174,12 @@ public class BRSServiceImpl implements BRSService {
     }
 
     @Override
-    public void saveBarberToDB(String username, String password, String b_name, Integer usertype, String phonenumber) {
-        userDao.insertBarberToDB(username,password,b_name,usertype,phonenumber);
+    public void saveBarberToDB(String username, String password, String b_name, String b_description, String phonenumber) {
+        userDao.insertBarberToDB(username,password,b_name,b_description,phonenumber);
+    }
+
+    @Override
+    public User findUserById(Integer id) {
+        return userDao.selectUserById(id);
     }
 }
